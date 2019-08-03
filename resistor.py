@@ -33,7 +33,10 @@ class Resistor:
         :param resistor: a resistor object
         :return: new resistor object in series
         """
-        return self.value() + resistor.value()
+        new_name = self._name + "+" + resistor.name()
+        new_val = self._val + resistor.value()
+        series_resistor = Resistor(val=new_val, name=new_name)
+        return series_resistor
 
     def reciprocal(self):
         """

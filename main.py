@@ -1,3 +1,4 @@
+from resistor import Resistor
 
 print("hello, world!")
 
@@ -10,15 +11,10 @@ with open("e24.txt", "r") as file:
 
 print(list_e24)
 
-def calculate_resistor(r1, r2):
-    r1 = 1/r1
-    r2 = 1/r2
-    result = r1 + r2
-    return 1/result
-
-val = 5.8
-
-print(calculate_resistor(2, 1))
-
-
-
+for val1 in list_e24:
+    for val2 in list_e24:
+        r1 = Resistor(val=val1)
+        r2 = Resistor(val=val2)
+        rp = r1.parallel_with(r2)
+        if 5.75 < rp.value() < 5.85:
+            print(r1.value(), r2.value(), "result:", rp.value())
