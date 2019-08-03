@@ -4,7 +4,7 @@ print("hello, world!")
 
 list_e24 = list()
 
-with open("e24.txt", "r") as file:
+with open("E24.resistor", "r") as file:
     for line in file:
         list_e24.append(float(line.strip()))
 
