@@ -8,7 +8,7 @@ class ResistorDataset:
     def __init__(self, name, data):
         """
         ResistorData constructor
-        :param name: name of the resistor standard
+        :param name: name of the resistor data set
         :param data: resistor values in a list
         """
         self._name = name
@@ -16,7 +16,7 @@ class ResistorDataset:
 
     def name(self):
         """
-        :return: resistor standard
+        :return: name of resistor data set
         """
         return self._name
 

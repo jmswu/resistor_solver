@@ -7,5 +7,5 @@ solver = ResistorSolver(target=5.8, tolerance=0.005)
 
 data = ResistorData()
 
-for item in data.get_resistor_dataset():
+for item in data.get_dataset():
     print("name:", item.name(), "data:", item.data())
