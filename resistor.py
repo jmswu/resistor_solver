@@ -66,6 +66,16 @@ class Resistor:
         """
         return self._val * (1 - self._tolerance)
 
+    def in_tolerance(self, value):
+        """
+        :param value: value to be tested
+        :return: true of false
+        """
+        if self.value_min() <= value <= self.value_max():
+            return True
+        else:
+            return False
+
     def name(self):
         """
         return resistor name

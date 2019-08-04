@@ -35,7 +35,8 @@ class ResistorSolver:
                     r1 = Resistor(val=val_1)
                     r2 = Resistor(val=val_2)
                     rp = r1.parallel_with(r2)
-                    if self._target.value_min() <= rp.value() <= self._target.value_max():
+                    # test the value
+                    if self._target.in_tolerance(rp.value()):
                         error = (self._target.value() - rp.value()) / self._target.value()
                         result.append([data_set.name(), r1.value(), r2.value(), rp.value(), error])
         return result
