@@ -21,8 +21,7 @@ class ResistorSolver:
 
     def solution(self):
         """
-
-        :return:
+        :return: return a solution in a list [name, R1, R2, RParallel, error]
         """
         result = list()
         # loop through all data set

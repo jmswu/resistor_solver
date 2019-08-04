@@ -26,7 +26,7 @@ class ResistorData:
         get a list of files with the correct extension
         :return: list of resistor files
         """
-        all_files = os.listdir(".")
+        all_files = os.listdir()
         self._file_list.clear()
         for one_file in all_files:
             if self._extension in one_file:
