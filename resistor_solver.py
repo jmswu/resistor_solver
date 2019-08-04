@@ -6,10 +6,10 @@ class ResistorSolver:
     """
     find a solution to for the non-standard resistor values
     """
-    _target = 0.0
+    _target = Resistor()
     _tolerance = 0.0
-    _resistor_data = list()
     _extension = ""
+    _dataset_list = list()
 
     def __init__(self, target, tolerance=0.05, extension=".resistor"):
         """
@@ -17,37 +17,22 @@ class ResistorSolver:
         :param target: target resistor value want to get
         :param tolerance: acceptable tolerance
         """
-        self._target = target
+        self._target = Resistor(val=target, tolerance=tolerance)
         self._tolerance = tolerance
         self._extension = extension
+        # extract the data from the data set file and put them into a data set list
+        self._dataset_list = ResistorData(extension).get_dataset()
 
     def solution(self):
-        """
-        find all the possible combination from the resistor values data
-        :return: a list with resistor 1, resistor 2 and the calculated target resistor value
-        """
-        file_names = ResistorData(".resistor").get_files()
-        val_data = self.get_data(file_names[1])
         result = list()
-        val_min = self._target * (1.0 - self._tolerance)
-        val_max = self._target * (1.0 + self._tolerance)
-        for val_1 in val_data:
-            for val_2 in val_data:
-                r1 = Resistor(val=val_1)
-                r2 = Resistor(val=val_2)
-                rp = r1.parallel_with(r2)
-                if val_min <= rp.value() <= val_max:
-                    result.append([r1.value(), r2.value(), rp.value(), self._tolerance])
+        for data_set in self._dataset_list:
+            for val_1 in data_set.data():
+                for val_2 in data_set.data():
+                    r1 = Resistor(val=val_1)
+                    r2 = Resistor(val=val_2)
+                    rp = r1.parallel_with(r2)
+                    if self._target.value_min() <= rp.value() <= self._target.value_max():
+                        error = (self._target.value() - rp.value()) / self._target.value()
+                        result.append([data_set.name(), r1.value(), r2.value(), rp.value(), error])
         return result
 
-    def get_data(self, file_name):
-        """
-        open a file and extract all resistor values and put it into a list
-        :param file_name: file contain the resistor values
-        :return: a list with all the resistor values
-        """
-        data = list()
-        with open(file_name) as file:
-            for line in file:
-                data.append(float(line.strip()))
-        return data

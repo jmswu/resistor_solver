@@ -10,7 +10,7 @@ class ResistorData:
     _value_list = list()
     _dataset_list = list()
 
-    def __init__(self, extension=".resistor"):
+    def __init__(self, extension):
         self._extension = extension
         self.get_files()
 

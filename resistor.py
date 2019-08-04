@@ -4,8 +4,9 @@ class Resistor:
     """
     _name = ""  # name of the resistor
     _val = 0.0  # value of the resistor
+    _tolerance = 0.0  # tolerance of the resistor
 
-    def __init__(self, val, name="Resistor"):
+    def __init__(self, val=1, name="Resistor", tolerance=0.0):
         """
         Create a resistor object
         :param val:     value of resistor
@@ -13,6 +14,7 @@ class Resistor:
         """
         self._name = name
         self._val = val
+        self._tolerance = tolerance
 
     def parallel_with(self, resistor):
         """
@@ -51,6 +53,18 @@ class Resistor:
         :return: resistor value
         """
         return self._val
+
+    def value_max(self):
+        """
+        :return: the maximum value within tolerance
+        """
+        return self._val * (1 + self._tolerance)
+
+    def value_min(self):
+        """
+        :return: the minimum value within tolerance
+        """
+        return self._val * (1 - self._tolerance)
 
     def name(self):
         """
