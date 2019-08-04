@@ -50,12 +50,19 @@ class ResistorData:
         :return: a list of all data in resistor file
         """
         self._value_list.clear()
+        # loop through all files
         for file_name in self._file_list:
-            data = list()
+            # get the base data set from the file
+            base_data = list()
             with open(file_name) as file:
                 for line in file:
-                    data.append(float(line))
-            self._value_list.append(data)
+                    base_data.append(float(line))
+            # generate full data set from base data set
+            full_data = list()
+            for val in [1, 10, 100, 1000, 10000, 100000, 1000000]:
+                generated_data = [x * val for x in base_data]
+                full_data.extend(generated_data)
+            self._value_list.append(full_data)
         return self._value_list
 
     def get_dataset(self):
