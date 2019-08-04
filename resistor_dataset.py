@@ -1,27 +1,27 @@
-class ResistorStandard:
+class ResistorDataset:
     """
     a simple class to put the resistor data in
     """
-    _standard = ""
-    _list = list()
+    _name = ""
+    _data = list()
 
-    def __init__(self, standard, data):
+    def __init__(self, name, data):
         """
         ResistorData constructor
-        :param standard: name of the resistor standard
+        :param name: name of the resistor standard
         :param data: resistor values in a list
         """
-        self._standard = standard
-        self._list = data
+        self._name = name
+        self._data = data
 
     def name(self):
         """
         :return: resistor standard
         """
-        return self._standard
+        return self._name
 
     def data(self):
         """
         :return: all possible resistor value in a list
         """
-        return self._list
+        return self._data
