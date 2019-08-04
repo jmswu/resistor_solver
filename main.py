@@ -13,6 +13,6 @@ try:
     solver = ResistorSolver(target=target, tolerance=tolerance)
     result = solver.solution()
     for item in result:
-        print(item)
+        print("%s, R1=%f, R2=%.2f, RParallel=%.4f, error=%.4f" % (item[0], item[1], item[2], item[3], item[4]))
 except ValueError:
     print("Wrong value enter.")
