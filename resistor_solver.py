@@ -3,7 +3,7 @@ import os
 from resistor import Resistor
 
 
-class ResistorData:
+class ResistorData2:
     _extension = ""
     _resistor_files = list()
     _resistor_standard_names = list()
@@ -46,21 +46,6 @@ class ResistorData:
         return self._dict
 
 
-
-def get_resistor_val_files(extension):
-    """
-    return the list of files with the correct extension.
-    :param extension: file extension with the resistor value data
-    :return: a list with all the file name
-    """
-    all_files = os.listdir(".")
-    resistor_files = list()
-    for one_file in all_files:
-        if extension in one_file:
-            resistor_files.append(one_file)
-    return resistor_files
-
-
 class ResistorSolver:
     """
     find a solution to for the non-standard resistor values
@@ -85,7 +70,7 @@ class ResistorSolver:
         find all the possible combination from the resistor values data
         :return: a list with resistor 1, resistor 2 and the calculated target resistor value
         """
-        file_names = get_resistor_val_files(".resistor")
+        file_names = ResistorData2(".resistor").get_files()
         val_data = self.get_data(file_names[1])
         result = list()
         val_min = self._target * (1.0 - self._tolerance)
