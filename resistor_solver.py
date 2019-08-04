@@ -4,14 +4,19 @@ from resistor import Resistor
 
 
 class ResistorData:
-    _name = ""
-    _data = list()
+    _extension = ""
+    _resistor_files = list()
 
     def __init__(self, extension=".resistor"):
-        pass
+        self._extension = extension
 
-
-
+    def get_files(self):
+        all_files = os.listdir(".")
+        self._resistor_files.clear()
+        for one_file in all_files:
+            if self._extension in one_file:
+                self._resistor_files.append(one_file)
+        return self._resistor_files
 
 def get_resistor_val_files(extension):
     """
