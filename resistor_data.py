@@ -13,7 +13,7 @@ class ResistorData:
     _value_list = list()  # list of all values in .resistor file
     _dataset_list = list()  # list of names and values of .resistor file
 
-    def __init__(self, extension):
+    def __init__(self, extension=".resistor"):
         """
         Constructor
         :param extension: extension of files that contain all data, usually .resistor

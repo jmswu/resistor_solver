@@ -1,3 +1,4 @@
+from resistor_data import ResistorData
 from resistor_solver import ResistorSolver
 
 VER_MAJOR = 0
@@ -5,7 +6,11 @@ VER_MINOR = 1
 AUTHOR = "James Wu"
 EMAIL = "jameswu62@yahoo.co.nz"
 
-print("Resistor Solver, v%i.%i, by %s - %s" % (VER_MAJOR, VER_MINOR, AUTHOR, EMAIL))
+name = ResistorData().get_names()
+
+print("[Over complicated] Resistor Solver, v%i.%i, by %s - %s" % (VER_MAJOR, VER_MINOR, AUTHOR, EMAIL))
+print("Available dataset:", end=' ')
+print(*name)
 
 try:
     target = float(input("Please enter target value:"))
