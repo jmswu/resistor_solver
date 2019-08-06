@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jmswu/resistor_solver.svg?branch=master)](https://travis-ci.org/jmswu/resistor_solver)
+[![Build Status](https://travis-ci.com/jmswu/resistor_solver.svg?branch=master)](https://travis-ci.com/jmswu/resistor_solver)
 # Resistor Parallel Solver
 An over complicated resistor paralleling solver (for me to play with python). It find a solution to odd resistor values by paralleling resistors.
 
