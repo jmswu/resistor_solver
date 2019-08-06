@@ -9,7 +9,7 @@ EMAIL = "jameswu62@yahoo.co.nz"
 name = ResistorData().get_names()
 
 print("[Over complicated] Resistor Solver, v%i.%i, by %s - %s" % (VER_MAJOR, VER_MINOR, AUTHOR, EMAIL))
-print("Available dataset:", end=' ')
+print("Available data set:", end=' ')
 print(*name)
 
 try:
